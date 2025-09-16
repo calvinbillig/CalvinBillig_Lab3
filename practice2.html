@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paragraph Color Changer</title>
+    <style>
+        #paragraph {
+            border-style: solid;
+            border-width: 5px;
+            background-color: rgb(255,255,255);
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>EECS 348 Lab 3: Practice 2</h1>
+
+    <div id = "paragraph" style><p>Paragraph to be altered.</p></div>
+    Border R(0-255): 
+    <input type = "text" id = "borderR" value><br>
+    Border G(0-255): 
+    <input type = "text" id = "borderG" value><br>
+    Border B(0-255): 
+    <input type = "text" id = "borderB" value><br>
+    Border Width: 
+    <input type = "text" id = "borderWidth" value><br>
+    Background R(0-255): 
+    <input type = "text" id = "bg_R" value><br>
+    Background G(0-255): 
+    <input type = "text" id = "bg_G" value><br>
+    Background B(0-255): 
+    <input type = "text" id = "bg_B" value><br>
+
+    <button onclick="changeColor()"Change the Color!>Change the Color!</button>
+
+    <script>
+        function changeColor() {
+            let borderR = document.getElementById("borderR").value;
+            let borderG = document.getElementById("borderG").value;
+            let borderB = document.getElementById("borderB").value;
+
+            let borderWidth = document.getElementById("borderWidth").value;
+
+            let bg_R = document.getElementById("bg_R").value;
+            let bg_G = document.getElementById("bg_G").value;
+            let bg_B = document.getElementById("bg_B").value;
+
+            // Get paragraphs div
+            let para = document.getElementById("paragraph");
+
+            // Changes the elements of paragraph to inputs
+            para.style.borderColor = `rgb(${borderR}, ${borderG}, ${borderB})`;
+            para.style.borderWidth = borderWidth + "px";
+            para.style.backgroundColor = `rgb(${bg_R}, ${bg_G}, ${bg_B})`;
+
+        }
+    </script>
+
+
+
+
+    </div>
+</body>
+</html>

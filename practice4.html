@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #paragraph {
+        border-style: solid;
+        border-width: 10px;
+        background-color: burlywood;
+        border-color: black;
+        padding: 10px;
+        width: fit-content;
+        }
+        /* Creates the format of the table */
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>EECS 348 Lab 3: Practice 4</h1>
+
+    <div class = "paragraph">
+        <form method = "post">
+            Size of multiplication table: 
+            <input type = "text" name = "size"> <br>
+            <input type = "submit" value = "Generate Table">
+        </form>
+    </div>
+
+    <?php
+    echo "<table border='1' style='border-collapse: collapse;'>";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $n = intval($_POST["size"]);
+
+        echo "<table>";
+
+        // Table headers
+        echo "<tr><th>0</th>";
+        for ($i = 1; $i <= $n; $i++) {
+            echo "<th>$i</th>";
+        }
+        echo "</tr>";
+
+        // Table data
+        for ($row = 1; $row <= $n; $row++) {
+            echo "<tr>";
+            echo "<th>$row</th>"; // Row header
+            for ($col = 1; $col <= $n; $col++) {
+                echo "<td>" . ($row * $col) . "</td>";
+            }
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    }
+    ?>
+</body>
+</html>
